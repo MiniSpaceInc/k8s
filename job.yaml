@@ -7,6 +7,6 @@ spec:
     spec:
       containers:
       - name: db-migration
-        image: minispace/db:latest
+        image: maven:3.9.6-amazoncorretto-21-debian
       restartPolicy: Never
-  backoffLimit: 4
+  backoffLimit: 2
