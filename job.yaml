@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kid: Job
+metadata:
+  name: db-migration-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: db-migration
+        image: minispace/db:latest
+      restartPolicy: Never
+  backoffLimit: 4
