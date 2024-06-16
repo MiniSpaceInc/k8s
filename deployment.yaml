@@ -1,26 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: db-migration-deployment
-  namespace: prod-us
+  name: my-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: db-migration
+      app: my-app
   template:
     metadata:
       labels:
-        app: db-migration
+        app: my-app
     spec:
       containers:
-        - name: db
-          image: minispace/db:latest
-          resources:
-            limits:
-              memory: "2Gi"
-              cpu: "2"
-            requests:
-              memory: "2Gi"
-              cpu: "2"
+      - name: my-app
+        image: nginx:latest
+        ports:
+        - containerPort: 80
 
